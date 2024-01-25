@@ -28,7 +28,8 @@ namespace FoxBnB.Chat
 
         public async Task SendMessage(Message chatMessage)
         {
-            chatMessage.DateSent = DateTime.UtcNow;
+            var newDate = DateTime.UtcNow;
+            chatMessage.DateSent = newDate.ToLocalTime();
 
             _context.Messages.Add(chatMessage);
             await _context.SaveChangesAsync();
