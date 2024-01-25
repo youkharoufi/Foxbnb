@@ -1,48 +1,44 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\2ae32d7e-d27c-4dea-af35-c8146e3dbee2_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\2ae32d7e-d27c-4dea-af35-c8146e3dbee2_Philip.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\346e6f99-5606-42b9-853e-ea7d3e32a9de_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\346e6f99-5606-42b9-853e-ea7d3e32a9de_Philip.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\437fef73-14d1-450c-9dbc-8e2c9380af91_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\437fef73-14d1-450c-9dbc-8e2c9380af91_Philip.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\67ae9333-8e90-4def-bf13-bccb5cefa2fe_megumi.jpg",
-      "PackagePath": "staticwebassets\\images\\67ae9333-8e90-4def-bf13-bccb5cefa2fe_megumi.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\6bc98f70-679c-42b4-8ebf-a59113a4b922_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\6bc98f70-679c-42b4-8ebf-a59113a4b922_Philip.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\82fe061c-bf68-4af9-bcd1-8905332ea411_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\82fe061c-bf68-4af9-bcd1-8905332ea411_Philip.jpg"
-    },
-    {
       "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\Philip.jpg",
       "PackagePath": "staticwebassets\\images\\Philip.jpg"
-    },
-    {
-      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\cad118a9-1308-473b-b75f-7966c9fd5e75_Philip.jpg",
-      "PackagePath": "staticwebassets\\images\\cad118a9-1308-473b-b75f-7966c9fd5e75_Philip.jpg"
     },
     {
       "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\estelle.jpg",
       "PackagePath": "staticwebassets\\images\\estelle.jpg"
     },
     {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\house1.jpg",
+      "PackagePath": "staticwebassets\\images\\house1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\house2.avif",
+      "PackagePath": "staticwebassets\\images\\house2.avif"
+    },
+    {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\house2.jpg",
+      "PackagePath": "staticwebassets\\images\\house2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\house3.jpg",
+      "PackagePath": "staticwebassets\\images\\house3.jpg"
+    },
+    {
       "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\lorenzo.avif",
       "PackagePath": "staticwebassets\\images\\lorenzo.avif"
     },
     {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\lorenzo.jpg",
+      "PackagePath": "staticwebassets\\images\\lorenzo.jpg"
+    },
+    {
       "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\youssef.avif",
       "PackagePath": "staticwebassets\\images\\youssef.avif"
+    },
+    {
+      "Id": "C:\\Users\\KharoufiY\\.NET Projects\\FoxBnB\\FoxBnB\\wwwroot\\images\\youssef.jpg",
+      "PackagePath": "staticwebassets\\images\\youssef.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FoxBnB.Microsoft.AspNetCore.StaticWebAssets.props",

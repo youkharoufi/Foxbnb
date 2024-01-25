@@ -31,9 +31,9 @@ namespace FoxBnB.SeedData
             {
                 var users = new List<(ApplicationUser, string password)>
             {
-                (new ApplicationUser {UserName="ykharoufi", Firstname="Youssef", Lastname="Kharoufi", PhoneNumber="0615482619", RoleName="Client", Email="youssef@foxbnb.com", ProfilePicUrl=$"{uri}images/youssef.avif"}, "Foxbnb123!"),
+                (new ApplicationUser {UserName="ykharoufi", Firstname="Youssef", Lastname="Kharoufi", PhoneNumber="0615482619", RoleName="Client", Email="youssef@foxbnb.com", ProfilePicUrl=$"{uri}images/youssef.jpg"}, "Foxbnb123!"),
                 (new ApplicationUser {UserName="emaurin", Firstname="Estelle", Lastname="Maurin", PhoneNumber="0776198423", RoleName="Owner", Email="estelle@foxbnb.com", ProfilePicUrl=$"{uri}images/estelle.jpg"}, "Foxbnb123!"),
-                (new ApplicationUser {UserName="ldavidoff", Firstname="Lorenzo", Lastname="Davidoff", PhoneNumber="0537412563", RoleName="Owner", Email="lorenzo@foxbnb.com", ProfilePicUrl=$"{uri}images/lorenzo.avif"}, "Foxbnb123!"),
+                (new ApplicationUser {UserName="ldavidoff", Firstname="Lorenzo", Lastname="Davidoff", PhoneNumber="0537412563", RoleName="Owner", Email="lorenzo@foxbnb.com", ProfilePicUrl=$"{uri}images/lorenzo.jpg"}, "Foxbnb123!"),
 
             };
 
@@ -52,13 +52,14 @@ namespace FoxBnB.SeedData
 
         public static async Task SeedProperties(DatabaseContext context)
         {
+            Uri uri = new Uri("https://localhost:7187");
             var allProperties = await context.Properties.ToListAsync();
 
             if (!allProperties.Any())
             { 
             var properties = new List<Property>()
                 {
-                    (new Property{ Id= Guid.NewGuid().ToString(), OwnerId="fff89ee6-4fef-44ac-a477-99030f4eb0a9", Type="Appartment", InfoParagraph=
+                    (new Property{ Id= Guid.NewGuid().ToString(), OwnerId="0dd6be00-1f6a-45ff-b08b-cd68bf03b7a8", Type="Appartment", InfoParagraph=
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
                         "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
                         " Erat nam at lectus urna duis convallis. Ornare lectus sit amet est" +
@@ -72,9 +73,9 @@ namespace FoxBnB.SeedData
                         " ante. Non enim praesent elementum facilisis leo. Nunc mi ipsum faucibus" +
                         " vitae aliquet. Vulputate mi sit amet mauris commodo. Ut placerat orci" +
                         " nulla pellentesque dignissim enim sit.", Price=2264.00, TotalSpace=140, FloorNumber=38,
-                        NumberOfRooms=8, ParkingAvailable=true, Address="24 New Street Miami, OR 24560"}),
+                        NumberOfRooms=8, ParkingAvailable=true, Address="24 New Street Miami, OR 24560", PhotoUrl=$"{uri}images/house2.jpg" }),
 
-                    (new Property{Id= Guid.NewGuid().ToString(), OwnerId="436bcb1a-8463-49e2-b909-7c9a575be0fd", Type="Villa House", InfoParagraph=
+                    (new Property{Id= Guid.NewGuid().ToString(), OwnerId="9c5b19b0-f7c2-4107-8ffa-8a02c79a3bea", Type="Villa House", InfoParagraph=
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
                         "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
                         " Erat nam at lectus urna duis convallis. Ornare lectus sit amet est" +
@@ -88,9 +89,9 @@ namespace FoxBnB.SeedData
                         " ante. Non enim praesent elementum facilisis leo. Nunc mi ipsum faucibus" +
                         " vitae aliquet. Vulputate mi sit amet mauris commodo. Ut placerat orci" +
                         " nulla pellentesque dignissim enim sit.", Price=1180.00, TotalSpace=540, FloorNumber=45,
-                        NumberOfRooms=10, ParkingAvailable=true, Address="157 Swaggy Street Miami, OR 369852"}),
+                        NumberOfRooms=10, ParkingAvailable=true, Address="157 Swaggy Street Miami, OR 369852", PhotoUrl=$"{uri}images/house1.jpg"}),
 
-                    (new Property{Id= Guid.NewGuid().ToString(), OwnerId="0020216b-7473-491c-b131-2d6d5040c09a", Type="Penthouse", InfoParagraph=
+                    (new Property{Id= Guid.NewGuid().ToString(), OwnerId="0dd6be00-1f6a-45ff-b08b-cd68bf03b7a8", Type="Penthouse", InfoParagraph=
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
                         "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
                         " Erat nam at lectus urna duis convallis. Ornare lectus sit amet est" +
@@ -104,7 +105,7 @@ namespace FoxBnB.SeedData
                         " ante. Non enim praesent elementum facilisis leo. Nunc mi ipsum faucibus" +
                         " vitae aliquet. Vulputate mi sit amet mauris commodo. Ut placerat orci" +
                         " nulla pellentesque dignissim enim sit.", Price=1460.00, TotalSpace=1200, FloorNumber=13,
-                        NumberOfRooms=15, ParkingAvailable=true, Address="326 Ezeiy Street Miami, OR 369852"}),
+                        NumberOfRooms=15, ParkingAvailable=true, Address="326 Ezeiy Street Miami, OR 369852", PhotoUrl = $"{uri}images/house3.jpg"}),
 
                 };
 

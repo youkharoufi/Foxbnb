@@ -12,5 +12,8 @@
         public bool ParkingAvailable { get; set; }
         public string Address { get; set; }
         public double Price { get; set; }
+        public string PhotoUrl { get; set; }
+
     }
+
 }

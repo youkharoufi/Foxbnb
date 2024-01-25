@@ -18,6 +18,7 @@ namespace FoxBnB.ProgramCsExtension
 
             services.AddScoped<ITokenService, TokenServices>();
             services.AddScoped<IPropertyService, PropertyService>();
+            services.AddScoped<IMessagesService, MessagesService>();
             services.AddSignalR();
 
             services.AddCors();

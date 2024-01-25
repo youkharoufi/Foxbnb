@@ -12,7 +12,6 @@ namespace FoxBnB.Models
 
         public string ProfilePicUrl { get; set; }
 
-
         public string RoleName { get; set; }
 
         public string? Token { get; set; }

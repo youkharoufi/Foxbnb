@@ -28,14 +28,17 @@ namespace FoxBnB.Chat
 
         public async Task SendMessage(Message chatMessage)
         {
+            chatMessage.DateSent = DateTime.UtcNow;
+
+            _context.Messages.Add(chatMessage);
+            await _context.SaveChangesAsync();
+
             var receiverConnectionId = UserConnections.FirstOrDefault(c => c.Value == chatMessage.ReceiverId).Key;
             if (!string.IsNullOrEmpty(receiverConnectionId))
             {
                 await Clients.Client(receiverConnectionId).SendAsync("ReceiveMessage", chatMessage);
             }
-
-            _context.Messages.Add(chatMessage);
-            await _context.SaveChangesAsync();
+            
 
             // Optionally, echo the message back to the sender
             await Clients.Caller.SendAsync("ReceiveMessage", chatMessage);

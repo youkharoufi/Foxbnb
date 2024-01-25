@@ -115,5 +115,15 @@ namespace FoxBnB.Controllers
 
             return Ok(userFromDb);
         }
+
+        [HttpGet("find-user-by-id/{userId}")]
+        public async Task<ActionResult<ApplicationUser>> GetUserById(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null) return NotFound("No such user in database :/");
+
+            return user;
+        }
     }
 }

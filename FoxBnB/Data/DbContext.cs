@@ -16,6 +16,7 @@ namespace FoxBnB.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<DateRangeRes> DateRanges { get; set; }
 
     }
 

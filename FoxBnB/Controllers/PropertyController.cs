@@ -35,5 +35,17 @@ namespace FoxBnB.Controllers
         {
             return Ok(await _propertyService.GetPropertiesByType(type));
         }
+
+        [HttpPost("make-reservation")]
+        public async Task<ActionResult<DateRangeRes>> MakeAReservation(DateRangeRes reservation)
+        {
+            return Ok(await _propertyService.ReserveDateRange(reservation));
+        }
+
+        [HttpGet("get-all-reservations/{propertyId}")]
+        public async Task<ActionResult<List<DateRangeRes>>> GetAllReservations(string propertyId)
+        {
+            return Ok(await _propertyService.GetAllReservedDates(propertyId));  
+        }
     }
 }
