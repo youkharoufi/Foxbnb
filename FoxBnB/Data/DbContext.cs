@@ -16,7 +16,17 @@ namespace FoxBnB.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Property> Properties { get; set; }
-        public DbSet<DateRangeRes> DateRanges { get; set; }
+        public DbSet<DayInfo> DaysInfo { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<DateRangeRes>()
+            //    .HasMany(p => p.DaysInRange)
+            //    .WithOne(d => d.DateRangeRes)
+            //    .HasForeignKey(d => d.DateRangeResId);
+        }
 
     }
 

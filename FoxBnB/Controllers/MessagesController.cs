@@ -3,6 +3,7 @@ using FoxBnB.Data;
 using FoxBnB.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace FoxBnB.Controllers
 {
@@ -28,6 +29,18 @@ namespace FoxBnB.Controllers
         public async Task<ActionResult<List<Message>>> GetAllReceivedMessages(string senderId, string userId)
         {
             return Ok(await _messagesService.GetReceivedMessages(senderId, userId));
+        }
+
+        [HttpGet("unread-message-count/{userId}")]
+        public async Task<ActionResult<int>> GetUnreadMessagesCount(string userId)
+        {
+            return Ok(await _messagesService.GetUnreadMessagesCount(userId));
+        }
+
+        [HttpGet("all-senders-users/{userId}")]
+        public async Task<ActionResult<List<ApplicationUser>>> GetAllSendersUsers(string userId)
+        {
+            return Ok(await _messagesService.GetAllUsersSenders(userId));  
         }
 
     }

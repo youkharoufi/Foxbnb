@@ -30,30 +30,54 @@ namespace FoxBnB.Controllers.Services
             return await _context.Properties.Where(p => p.Type == type).ToListAsync();
         }
 
-        public async Task<DateRangeRes> ReserveDateRange(DateRangeRes reservation)
+        public async Task<List<DayInfo>> ReserveDateRange(DayInfoDto dateInfoDto)
         {
-            var days = new List<DateTime>();
+            var days = new List<DayInfo>();
 
-            for (DateTime day = reservation.StartDate; day <= reservation.EndDate; day = day.AddDays(1))
+            foreach(var day in dateInfoDto.AllDaysToBook)
             {
-                days.Add(day);
+                var newDayToAdd = new DayInfo();
+                newDayToAdd.Id = Guid.NewGuid().ToString();
+                newDayToAdd.Date = day.Date;
+                newDayToAdd.Booked = true;
+                newDayToAdd.PropertyId = dateInfoDto.PropertyId;
+
+                days.Add(newDayToAdd);
             }
 
-            reservation.DaysInRange = days;
-            await _context.DateRanges.AddAsync(reservation);
+            foreach(var day in days)
+            {
+                var result = await _context.DaysInfo.AddAsync(day);
+                await _context.SaveChangesAsync();
 
-            await _context.SaveChangesAsync();
+            }
 
-            return reservation;
+            
+            
+            return days;
+
 
 
         }
 
-        public async Task<List<DateRangeRes>> GetAllReservedDates(string propertyId)
+        public async Task<List<DayInfo>> GetAllReservedDates(string propertyId)
         {
-            var property = await _context.DateRanges.Where(x => x.PropertyId == propertyId).ToListAsync();
+            var bookedDays = new List<DayInfo>();
 
-            return property;
+            bookedDays = await _context.DaysInfo.Where(dinfo => dinfo.PropertyId == propertyId && dinfo.Booked == true).ToListAsync();
+
+            return bookedDays;
+
+            
+        }
+
+        public async Task<bool> IsBooked(string propertyId, DateTime day)
+        {
+            var sku = await _context.DaysInfo.Where(i=>i.PropertyId == propertyId && i.Date.Date == day.Date).FirstOrDefaultAsync();
+
+            return sku?.Booked == true;
+
+
         }
     }
 }

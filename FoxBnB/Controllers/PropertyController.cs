@@ -37,15 +37,26 @@ namespace FoxBnB.Controllers
         }
 
         [HttpPost("make-reservation")]
-        public async Task<ActionResult<DateRangeRes>> MakeAReservation(DateRangeRes reservation)
+        public async Task<ActionResult<List<DayInfo>>> MakeAReservation(DayInfoDto dayInfoDto)
         {
-            return Ok(await _propertyService.ReserveDateRange(reservation));
+            return Ok(await _propertyService.ReserveDateRange(dayInfoDto));
         }
 
         [HttpGet("get-all-reservations/{propertyId}")]
-        public async Task<ActionResult<List<DateRangeRes>>> GetAllReservations(string propertyId)
+        public async Task<ActionResult<List<DayInfo>>> GetAllReservations(string propertyId)
         {
             return Ok(await _propertyService.GetAllReservedDates(propertyId));  
+        }
+
+        [HttpPost("is-booked/{propertyId}")]
+        public async Task<ActionResult<bool>> IsBooked(string propertyId,[FromForm] string dayString)
+        {
+            DateTime day;
+            if (!DateTime.TryParse(dayString, out day))
+            {
+                return BadRequest("Date not parsed correctyly");
+            }
+            return Ok(await _propertyService.IsBooked(propertyId, day.Date));
         }
     }
 }
