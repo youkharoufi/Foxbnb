@@ -34,27 +34,53 @@ namespace FoxBnB.Controllers.Services
         {
             var user = await _userManager.FindByIdAsync(userId);
 
-            var messagesOfUser = await _context.Messages.Where(n=>n.ReceiverId == userId).ToListAsync();
+            var messagesOfUser = await _context.Messages.Where(n=>n.ReceiverId == userId && n.Read == false).ToListAsync();
 
             return messagesOfUser.Count;
         }
 
-        public async Task<List<ApplicationUser>> GetAllUsersSenders(string userId)
+        public async Task<List<Message>> ReadMessages(string senderId, string receiverId)
         {
-            var users = new List<ApplicationUser>();
+            var messages = await _context.Messages.Where(i => i.SenderId == senderId && i.ReceiverId == receiverId).ToListAsync();
 
-            var messagesReceived = await _context.Messages.Where(j => j.ReceiverId == userId && j.Read == false).ToListAsync();
-
-            foreach (var message in messagesReceived)
+            foreach(var message in messages)
             {
-                var sender = await _userManager.FindByIdAsync(message.SenderId);
-                if (sender != null)
-                {
-                    users.Add(sender);
-                }
+                message.Read = true;
+                await _context.SaveChangesAsync();
+               
             }
 
-            return users;
+            return messages;
+
+    
+        }
+
+        public async Task<List<ApplicationUser>> GetAllMessageSenders(string currentUserId)
+        {
+            var currentUser = await _userManager.FindByIdAsync(currentUserId);
+
+            var allMessagesReceived = await _context.Messages.Where(msg => msg.ReceiverId == currentUserId).ToListAsync();
+
+            var allSenderUsers = new List<ApplicationUser>();
+
+            foreach(var message in allMessagesReceived)
+            {
+                var senderUser = await _userManager.FindByIdAsync(message.SenderId);
+                if(senderUser != null)
+                {
+                    allSenderUsers.Add(senderUser);
+                }
+
+            }
+
+            return allSenderUsers;
+        }
+
+        public async Task<int> GetMessageCountPerUserSender(string senderId, string receiverId)
+        {
+            var unreadMessages = await _context.Messages.Where(n=>n.SenderId == senderId && n.ReceiverId == receiverId && n.Read == false).ToListAsync();
+
+            return unreadMessages.Count;
         }
 
     }

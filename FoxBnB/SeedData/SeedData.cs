@@ -72,7 +72,7 @@ namespace FoxBnB.SeedData
                         " nunc eget. Risus pretium quam vulputate dignissim suspendisse in est" +
                         " ante. Non enim praesent elementum facilisis leo. Nunc mi ipsum faucibus" +
                         " vitae aliquet. Vulputate mi sit amet mauris commodo. Ut placerat orci" +
-                        " nulla pellentesque dignissim enim sit.", Price=2264.00, TotalSpace=140, FloorNumber=38,
+                        " nulla pellentesque dignissim enim sit.", Price=2264.00, TotalSpace=140, FloorNumber=38, 
                         NumberOfRooms=8, ParkingAvailable=true, Address="24 New Street Miami, OR 24560", PhotoUrl=$"{uri}images/house2.jpg" }),
 
                     (new Property{Id= Guid.NewGuid().ToString(), OwnerId="9c5b19b0-f7c2-4107-8ffa-8a02c79a3bea", Type="Villa House", InfoParagraph=

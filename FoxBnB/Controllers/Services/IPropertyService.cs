@@ -10,5 +10,6 @@ namespace FoxBnB.Controllers.Services
         Task<List<DayInfo>> GetAllReservedDates(string propertyId);
         Task<List<DayInfo>> ReserveDateRange(DayInfoDto dateInfoDto);
         Task<bool> IsBooked(string propertyId, DateTime day);
+        Task<List<DayInfo>> GetAllReservationsByUserId(string userId);
     }
 }

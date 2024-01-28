@@ -58,5 +58,11 @@ namespace FoxBnB.Controllers
             }
             return Ok(await _propertyService.IsBooked(propertyId, day.Date));
         }
+
+        [HttpGet("get-reserved-days-by-userId/{userId}")]
+        public async Task<ActionResult<List<DayInfo>>> GetReservationsByUserId(string userId)
+        {
+            return Ok(await _propertyService.GetAllReservationsByUserId(userId));
+        } 
     }
 }

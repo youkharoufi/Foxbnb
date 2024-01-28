@@ -40,7 +40,20 @@ namespace FoxBnB.Controllers
         [HttpGet("all-senders-users/{userId}")]
         public async Task<ActionResult<List<ApplicationUser>>> GetAllSendersUsers(string userId)
         {
-            return Ok(await _messagesService.GetAllUsersSenders(userId));  
+            return Ok(await _messagesService.GetAllMessageSenders(userId));  
+        }
+
+        [HttpPost("read-messages/{senderId}/{receiverId}")]
+        public async Task<ActionResult<List<Message>>> ReadMessages(String senderId, string receiverId)
+        {
+            return Ok(await _messagesService.ReadMessages(senderId, receiverId));
+        }
+
+        [HttpGet("unread-messages-count-per-user/{senderId}/{receiverId}")]
+        public async Task<ActionResult<int>> GetUnreadMessagesCountPerUser(string senderId, string receiverId)
+        {
+
+            return Ok(await _messagesService.GetMessageCountPerUserSender(senderId, receiverId));
         }
 
     }

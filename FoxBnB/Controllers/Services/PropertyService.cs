@@ -38,6 +38,7 @@ namespace FoxBnB.Controllers.Services
             {
                 var newDayToAdd = new DayInfo();
                 newDayToAdd.Id = Guid.NewGuid().ToString();
+                newDayToAdd.UserId = dateInfoDto.UserId;
                 newDayToAdd.Date = day.Date;
                 newDayToAdd.Booked = true;
                 newDayToAdd.PropertyId = dateInfoDto.PropertyId;
@@ -79,5 +80,15 @@ namespace FoxBnB.Controllers.Services
 
 
         }
+
+        public async Task<List<DayInfo>> GetAllReservationsByUserId(string userId)
+        {
+            var reservations = await _context.DaysInfo.Where(dy => dy.UserId == userId).ToListAsync();
+
+            return reservations;
+
+        }
+
+
     }
 }
